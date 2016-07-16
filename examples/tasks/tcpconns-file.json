@@ -1,0 +1,25 @@
+{
+    "version": 1,
+    "schedule": {
+        "type": "simple",
+        "interval": "5s"
+    },
+    "workflow": {
+        "collect": {
+            "metrics": {
+                "/raintank/tcpconns/*/local/*": {}
+            },
+            "config": {
+            },
+            "process": null,
+            "publish": [
+                {
+                    "plugin_name": "mock-file",
+                    "config": {
+                        "file": "/tmp/published_tcpconn"
+                    }
+                }
+            ]
+        }
+    }
+}
